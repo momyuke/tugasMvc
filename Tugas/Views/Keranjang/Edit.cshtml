@@ -1,0 +1,35 @@
+﻿@model Tugas.Models.Keranjang
+@{
+    
+        ViewBag.Title = "Edit";
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <form action="~/update" method="post">
+            <div class="form-group">
+                <h5> ID Barang</h5>
+                <input class="form-control-plaintext" readonly type="text" value="@Model.IdBarang" name="IdBarang" /><br />
+                <h5> Nama Barang</h5>
+                <input class="form-control" readonly type="text" value="@Model.daftarBarangku().NamaBarang" name="NamaBarang" /><br />
+                <h5> Harga Barang (Dalam Rupiah)</h5>
+                <input class="form-control" readonly type="text" value="@Model.daftarBarangku().HargaBarang" name="HargaBarang" /><br />
+                <h5> Quantity Barang</h5>
+                <input class="form-control" type="text" value="@Model.Quantity" name="Quantity" /><br />
+
+                <input type="submit" class="btn btn-success" value="Edit">
+                
+                <a href="~/keranjang" class="btn btn-danger" role="button" aria-pressed="true">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

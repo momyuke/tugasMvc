@@ -1,0 +1,34 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h3 style="color:forestgreen">
+                    Sho Happy
+                    <small style="color:green">Shooping With Happy!</small>
+                </h3>
+                <a class="navbar-brand" href="~/daftarbarang">Daftar Barang</a>
+                <a class="navbar-brand" href="~/keranjang">Keranjang</a>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    <footer class="card-footer" text-muted">
+        <div class="container">
+            <h5 align="center">Copyright &copy; Sho Happy 2019</h5>
+        </div>
+    </footer>
+</body>
+</html>

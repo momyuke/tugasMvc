@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Tugas.Models.Barang>
+@{
+    
+   ViewBag.Title = "Daftar Barang";
+   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DaftarBarang</title>
+</head>
+<body>
+    <div>
+        <table class="table table-dark" border="1">
+            <tr>
+                <td>ID</td>
+                <td>NAMA</td>
+                <td>HARGA (Rp)</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.IdBarang</td>
+                    <td>@item.NamaBarang</td>
+                    <td>@item.HargaBarang</td>
+                    <td>
+                        <a href="~/tambah/@item.IdBarang" class="btn btn-success"> Tambah </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

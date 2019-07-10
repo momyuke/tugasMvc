@@ -1,0 +1,67 @@
+﻿@model List<Tugas.Models.Keranjang>
+
+@{
+    ViewBag.Title = "Keranjang";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Keranjang</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css"/>
+</head>
+<body>
+    <div>
+        @{ List<double> total = new List<double>();}
+        <table class="table table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID Barang</th>
+                    <th scope="col">Nama Barang</th>
+                    <th scope="col">Harga Barang</th>
+                    <th scope="col">Quantity Barang</th>
+                    <th scope="col">Subtotal Barang</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model is null)
+                {
+                    <tr>
+                        <td colspan="7"> 
+                            <h2>Barang Belum Di Masukkan Ke Dalam Keranjang</h2>
+                        </td>
+                    </tr>
+                }
+                else
+                { foreach (var item in Model)
+                     {
+                    <tr>
+
+                        <th scope="row">@item.IdBarang</th>
+                        <td>@item.daftarBarangku().NamaBarang</td>
+                        <td>Rp. @item.daftarBarangku().HargaBarang</td>
+                        <td>@item.Quantity</td>
+                        <td>Rp. @(item.daftarBarangku().HargaBarang * item.Quantity)</td>
+                        @{ total.Add(item.daftarBarangku().HargaBarang * item.Quantity);}
+                        <td>
+                            <a href="~/edit/@item.IdBarang"  class="btn btn-primary">EDIT</a>
+                            <a href="~/hapus/@item.IdBarang" class="btn btn-danger">DELETE</a>
+                        </td>
+
+                    </tr>
+                            }
+                            }
+                <tr>
+                    <td colspan="5" align="right">
+                        Total : Rp. @total.Sum()
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+    </div>
+</body>
+</html>
